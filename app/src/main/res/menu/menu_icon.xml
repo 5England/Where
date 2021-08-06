@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/icon_feed"
+        android:enabled="true"
+        android:icon="@drawable/icon_feed"
+        android:iconTint="@color/concept_color"
+        android:title="피드" />
+    <item
+        android:id="@+id/menu_favorites"
+        android:enabled="true"
+        android:icon="@drawable/icon_upload"
+        android:iconTint="@color/concept_color"
+        android:title="업로드" />
+    <item
+        android:id="@+id/menu_email"
+        android:enabled="true"
+        android:icon="@drawable/icon_my"
+        android:iconTint="@color/concept_color"
+        android:title="My" />
+
+</menu>

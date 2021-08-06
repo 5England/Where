@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787869965714",
+    "project_id": "where-64a51",
+    "storage_bucket": "where-64a51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787869965714:android:e101a0b4e730a1b58d354b",
+        "android_client_info": {
+          "package_name": "com.devwan.where"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787869965714-5ekc8pjq3r2ropob985t7u2rikjk27gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaQf6gipPlBoZXLRDj6LJD6FErEgODMGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787869965714-5ekc8pjq3r2ropob985t7u2rikjk27gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
