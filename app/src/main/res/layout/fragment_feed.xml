@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="15dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/concept_color"
                 android:fontFamily="@font/nixgon_medium"
-                android:textSize="35dp"
+                android:textSize="40dp"
                 android:text="피드" />
 
             <LinearLayout
@@ -63,8 +63,6 @@
                 android:id="@+id/btn_set_km"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:textColor="@color/concept_color"
                 android:text="100"
                 android:layout_marginRight="3dp"
                 android:paddingBottom="5dp"
@@ -81,7 +79,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/feed"
+            android:id="@+id/recyclerView_feed"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

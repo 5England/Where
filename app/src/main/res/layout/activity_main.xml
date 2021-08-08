@@ -14,7 +14,7 @@
         android:layout_weight="1"></FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv"
+        android:id="@+id/bnv_main"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:itemIconTint="@drawable/menu_selector_color"

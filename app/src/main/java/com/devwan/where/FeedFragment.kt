@@ -1,59 +1,78 @@
 package com.devwan.where
 
+import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.net.toUri
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_feed.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+lateinit var list_Where: ArrayList<Where>
+lateinit var glide: RequestManager
+lateinit var recyclerView: RecyclerView
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FeedFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FeedFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+        var rootView = inflater.inflate(R.layout.fragment_feed, container, false)
+        list_Where = ArrayList<Where>()
+        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_splash), "d", 0))
+        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_feed), "d", 0))
+        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_splash), "d", 0))
+        glide = Glide.with(this@FeedFragment)
+
+        recyclerView = rootView.findViewById(R.id.recyclerView_feed) as RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = FeedViewAdapter(list_Where, layoutInflater, glide)
+        return rootView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FeedFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FeedFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+}
+
+class FeedViewAdapter(
+    var itemList: ArrayList<Where>,
+    val inflater: LayoutInflater,
+    val glide: RequestManager
+) : RecyclerView.Adapter<FeedViewAdapter.ViewHolder>() {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var whereImage: ImageView
+
+        init {
+            whereImage = itemView.findViewById(R.id.where_image)
+//            whereImage.setOnClickListener {
+//                val position: Int = adapterPosition
+//            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = inflater.inflate(R.layout.card_feed, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        glide.load(itemList.get(position).where_image).into(holder.whereImage)
+    }
+
+    override fun getItemCount(): Int {
+        return itemList.size
     }
 }
