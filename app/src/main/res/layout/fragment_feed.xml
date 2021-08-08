@@ -5,10 +5,84 @@
     android:layout_height="match_parent"
     tools:context=".FeedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/concept_color"
+                android:fontFamily="@font/nixgon_medium"
+                android:textSize="35dp"
+                android:text="피드" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/btn_order_rec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sds_basic"
+                    android:text="추천순"
+                    android:layout_marginRight="7dp"
+                    android:textColor="@color/concept_color"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nixgon_medium"
+                    android:text="|"
+                    android:layout_marginRight="7dp"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/btn_order_pop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sds_basic"
+                    android:text="인기순"
+                    android:textSize="17dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_set_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:textColor="@color/concept_color"
+                android:text="100"
+                android:layout_marginRight="3dp"
+                android:paddingBottom="5dp"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:fontFamily="@font/nixgon_medium"
+                android:text="KM"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </FrameLayout>
