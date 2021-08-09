@@ -1,26 +1,39 @@
 package com.devwan.where
 
+import android.app.Activity
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 lateinit var list_Where: ArrayList<Where>
 lateinit var glide: RequestManager
 lateinit var recyclerView: RecyclerView
+val db = Firebase.firestore
 
 class FeedFragment : Fragment() {
+
+    interface OnSignOutListener {
+        fun signOut()
+    }
+    lateinit var signoutListener : OnSignOutListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        signoutListener = context as OnSignOutListener
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,19 +44,20 @@ class FeedFragment : Fragment() {
     ): View? {
         var rootView = inflater.inflate(R.layout.fragment_feed, container, false)
         list_Where = ArrayList<Where>()
-        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_splash), "d", 0))
-        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_feed), "d", 0))
-        list_Where.add(Where("d", "d", ("android.resource://" + context?.packageName + "/" + R.drawable.icon_splash), "d", 0))
         glide = Glide.with(this@FeedFragment)
-
         recyclerView = rootView.findViewById(R.id.recyclerView_feed) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = FeedViewAdapter(list_Where, layoutInflater, glide)
+
         return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btn_set_km.setOnClickListener{
+            signoutListener.signOut()
+        }
     }
 }
 
