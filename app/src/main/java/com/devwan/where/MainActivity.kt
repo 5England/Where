@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), FeedFragment.OnSignOutListener {
         // Create and launch sign-in intent
         val signInIntent =
             AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers)
-                .setLogo(R.drawable.icon_splash)
+                .setLogo(R.drawable.icon_app)
                 .setTheme(R.style.Theme_Where)
                 .build()
         signInLauncher.launch(signInIntent)
