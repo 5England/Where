@@ -1,11 +1,12 @@
 package com.devwan.where
 
 import android.location.Geocoder
+import com.google.firebase.firestore.GeoPoint
 
 data class Where(
-    val where_title : String,
-    val where_detail : String,
-    val where_image : String,
-    val where_address : String,
-    val like : Int
+    val title : String,
+    val detail : String,
+    val image : String,
+    val address : GeoPoint,
+    val like : Long
 )
