@@ -3,6 +3,7 @@ package com.devwan.where
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -25,10 +26,10 @@ import kotlinx.android.synthetic.main.fragment_feed.*
 lateinit var list_Where: ArrayList<Where>
 lateinit var glide: RequestManager
 lateinit var recyclerView: RecyclerView
+lateinit var context_FeedActivity: Context
 val db = Firebase.firestore
 
 class FeedFragment : Fragment() {
-
     interface OnSignOutListener {
         fun signOut()
     }
@@ -37,6 +38,7 @@ class FeedFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         signoutListener = context as OnSignOutListener
+        context_FeedActivity = context;
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,7 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         var rootView = inflater.inflate(R.layout.fragment_feed, container, false)
+
         updateRecyclerView(rootView)
 
         return rootView
@@ -61,7 +64,6 @@ class FeedFragment : Fragment() {
 
     fun updateRecyclerView(rootView : View){
         list_Where = ArrayList<Where>()
-        glide = Glide.with(this@FeedFragment)
 
         db.collection("where")
             .get()
@@ -77,6 +79,7 @@ class FeedFragment : Fragment() {
                     )
                     list_Where.add(where)
                 }
+                glide = Glide.with(this@FeedFragment)
                 recyclerView = rootView.findViewById(R.id.recyclerView_feed) as RecyclerView
                 recyclerView.layoutManager = LinearLayoutManager(context)
                 recyclerView.adapter = FeedViewAdapter(list_Where, layoutInflater, glide)
@@ -94,14 +97,25 @@ class FeedViewAdapter(
 ) : RecyclerView.Adapter<FeedViewAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var whereImage: ImageView
-//        var whereLike: TextView
+        var whereLike: TextView
 
         init {
             whereImage = itemView.findViewById(R.id.where_image)
-//            whereLike = itemView.findViewById(R.id.where_like)
-//            whereImage.setOnClickListener {
-//                val position: Int = adapterPosition
-//            }
+            whereLike = itemView.findViewById(R.id.where_like)
+            whereImage.setOnClickListener {
+                val position: Int = adapterPosition
+                val intent : Intent = Intent(context_FeedActivity, WhereActivity::class.java)
+                intent.apply {
+                    putExtra("image", itemList.get(position).image)
+                    putExtra("like", itemList.get(position).like)
+                    putExtra("title", itemList.get(position).title)
+                    putExtra("address_latitude", itemList.get(position).address.latitude)
+                    putExtra("address_longitude", itemList.get(position).address.longitude)
+                    putExtra("detail", itemList.get(position).detail)
+                }
+
+                context_FeedActivity.startActivity(intent)
+            }
         }
     }
 
@@ -111,9 +125,8 @@ class FeedViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        glide.load(itemList.get(position).image).into(holder.whereImage)
-        glide.load("android.resource://com.devwan.where/drawable/icon_splash").into(holder.whereImage)
-//        holder.whereLike.setText(itemList.get(position).like.toString())
+        glide.load(itemList.get(position).image).into(holder.whereImage)
+        holder.whereLike.setText(itemList.get(position).like.toString())
     }
 
     override fun getItemCount(): Int {
