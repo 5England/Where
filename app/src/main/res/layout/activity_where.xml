@@ -50,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/sds_outline"
+                        android:textColor="@color/black"
                         android:text="0"
                         android:textSize="21dp" />
 
@@ -81,33 +82,17 @@
             </LinearLayout>
         </ScrollView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        android:layout_weight="9"
-        android:backgroundTint="@color/concept_color"
-        android:layout_marginRight="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginBottom="7dp"
-        app:cardUseCompatPadding="true">
-
-        <LinearLayout
+        <TextView
+            android:id="btn_where"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="웨얼?"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/nixgon_medium"/>
-        </LinearLayout>
+            android:layout_height="45dp"
+            android:fontFamily="@font/nixgon_medium"
+            android:text="G E O | P O I N T"
+            android:textColor="@color/white"
+            android:background="@color/concept_color"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="20dp" />
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>
