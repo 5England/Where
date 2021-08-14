@@ -24,12 +24,12 @@ class WhereActivity : AppCompatActivity(){
         )
         val detail_intent : String? = intent.getStringExtra("detail")
 
-//        btn_where.setOnClickListener(View.OnClickListener {
-//            val intent : Intent = Intent(
-//                Intent.ACTION_VIEW,
-//                Uri.parse("geo:0,0?q="+gp.latitude+","+gp.longitude+"(kit)"))
-//            startActivity(intent)
-//        })
+        btn_where.setOnClickListener(View.OnClickListener {
+            val intent : Intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("geo:0,0?q="+gp.latitude+","+gp.longitude+"(kit)"))
+            startActivity(intent)
+        })
 
         Glide.with(this@WhereActivity).load(image_intent!!).into(image)
         like.text = like_intent.toString()

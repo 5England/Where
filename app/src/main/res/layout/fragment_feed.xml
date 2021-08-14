@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sds_basic"
-                    android:text="추천순"
+                    android:text="최신순"
                     android:layout_marginRight="7dp"
                     android:textColor="@color/concept_color"
                     android:textSize="17dp" />

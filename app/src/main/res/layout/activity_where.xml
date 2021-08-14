@@ -9,9 +9,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        android:layout_weight="1"
         app:cardUseCompatPadding="true">
 
         <ScrollView
@@ -41,6 +41,7 @@
                         android:id="@+id/icon_like"
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:layout_marginRight="5dp"
                         app:srcCompat="@drawable/icon_like" />
 
@@ -48,10 +49,10 @@
                         android:id="@+id/like"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_gravity="clip_vertical"
                         android:fontFamily="@font/sds_outline"
-                        android:textColor="@color/black"
                         android:text="0"
+                        android:textColor="@color/black"
                         android:textSize="21dp" />
 
 
@@ -63,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/nixgon_medium"
+                    android:fontFamily="@font/pretendard_bold"
                     android:text="제목입니다"
                     android:textColor="@color/black"
                     android:textSize="30dp" />
@@ -74,8 +75,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/nixgon_medium"
+                    android:fontFamily="@font/pretendard_regular"
                     android:text="설명입니다"
+                    android:paddingBottom="150dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -83,15 +85,15 @@
         </ScrollView>
 
         <TextView
-            android:id="btn_where"
+            android:id="@+id/btn_where"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:fontFamily="@font/nixgon_medium"
-            android:text="G E O | P O I N T"
-            android:textColor="@color/white"
-            android:background="@color/concept_color"
             android:layout_gravity="bottom"
+            android:background="@color/concept_color"
+            android:fontFamily="@font/nixgon_medium"
             android:gravity="center_horizontal|center_vertical"
+            android:text="G E O-P O I N T"
+            android:textColor="@color/white"
             android:textSize="20dp" />
 
     </androidx.cardview.widget.CardView>
