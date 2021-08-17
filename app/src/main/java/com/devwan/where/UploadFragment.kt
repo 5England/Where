@@ -13,14 +13,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
+import com.google.firebase.firestore.GeoPoint
 import kotlinx.android.synthetic.main.fragment_upload.*
 import kotlinx.android.synthetic.main.fragment_upload.view.*
+import java.io.File
 
 
 class UploadFragment : Fragment() {
@@ -37,6 +40,12 @@ class UploadFragment : Fragment() {
     }
 
     lateinit var filePath : String
+    lateinit var file : File
+    lateinit var image : String
+    lateinit var title : String
+    lateinit var detail : String
+    lateinit var address : GeoPoint
+    val like : Number = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +58,19 @@ class UploadFragment : Fragment() {
             getPicture()
         })
 
+        btn_upload.setOnClickListener{
+            if(file == null) Toast.makeText(context, "no Image", Toast.LENGTH_LONG).show()
+            else if(address == null) Toast.makeText(context, "no address", Toast.LENGTH_LONG).show()
+            else if(edit_title.text.toString().isBlank()) Toast.makeText(context, "no title", Toast.LENGTH_LONG).show()
+            else uploadWhere()
+        }
         return rootView
+    }
+
+
+    fun uploadWhere(){
+        title = edit_title.text.toString()
+        detail = edit_detail.text.toString()
     }
 
     fun getPicture(){
@@ -67,9 +88,8 @@ class UploadFragment : Fragment() {
             btn_set_image.setImageURI(uri)
             btn_set_image.setPadding(0, 0, 0, 0)
             btn_set_image.scaleType = ImageView.ScaleType.CENTER_CROP
-            val filePath = getImageFilePath(uri)
-
-            Log.d("path", ""+ uri + ", " + filePath)
+            filePath = getImageFilePath(uri)
+            file = File(filePath)
         }
     }
 
@@ -84,8 +104,6 @@ class UploadFragment : Fragment() {
         }
         return cursor.getString(columnIndex)
     }
-
-
 }
 
 
