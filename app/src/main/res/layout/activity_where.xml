@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="1dp"
                         android:layout_marginRight="5dp"
-                        app:srcCompat="@drawable/icon_like" />
+                        app:srcCompat="@drawable/icon_like_concept" />
 
                     <TextView
                         android:id="@+id/like"
@@ -77,7 +77,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/pretendard_regular"
                     android:text="설명입니다"
-                    android:paddingBottom="150dp"
+                    android:paddingBottom="350dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 

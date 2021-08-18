@@ -81,6 +81,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_feed"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="#E7F7FF"/>
     </LinearLayout>
 </FrameLayout>
