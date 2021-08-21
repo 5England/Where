@@ -119,7 +119,7 @@ class UploadFragment : Fragment() {
     //mapAcitivity를 띄워서 marker 찍은 곳의 경로를 가져오는 기능.
     fun getGeopoint() {
         val intent = Intent(mContext, MapsActivity::class.java)
-        startActivity(intent)
+        startActivityForResult(intent, 2000)
     }
 
     //사진 uri 구하기
@@ -152,7 +152,10 @@ class UploadFragment : Fragment() {
         if (requestCode == 2000){
             if(data != null)
             {
+                address = GeoPoint(data.getDoubleExtra("latitude", 0.0),
+                    data.getDoubleExtra("longitude", 0.0))
 
+                Toast.makeText(mContext, address.longitude.toString(), Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(mContext, "데이터가 없습니다.", Toast.LENGTH_LONG).show()
             }
