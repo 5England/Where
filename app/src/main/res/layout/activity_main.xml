@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_background"
     android:orientation="vertical"
     tools:context=".MainActivity" >
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bnv_main"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="75dp"-->
+<!--        android:background="#121212"-->
+<!--        app:itemIconTint="@drawable/menu_selector_color"-->
+<!--        app:itemTextColor="@drawable/menu_selector_color"-->
+<!--        app:menu="@menu/menu_icon" />-->
 
     <FrameLayout
         android:id="@+id/container"
@@ -13,11 +23,22 @@
         android:layout_height="match_parent"
         android:layout_weight="1"></FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_main"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:itemIconTint="@drawable/menu_selector_color"
-        app:itemTextColor="@drawable/menu_selector_color"
-        app:menu="@menu/menu_icon" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_main"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="#121212"
+            app:itemIconTint="@drawable/menu_selector_color"
+            app:itemTextColor="@drawable/menu_selector_color"
+            android:theme="@style/Widget.BottomNavigationView"
+            app:menu="@menu/menu_icon" />
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

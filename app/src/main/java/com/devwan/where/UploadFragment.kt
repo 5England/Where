@@ -118,7 +118,8 @@ class UploadFragment : Fragment() {
 
     //mapAcitivity를 띄워서 marker 찍은 곳의 경로를 가져오는 기능.
     fun getGeopoint() {
-        
+        val intent = Intent(mContext, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     //사진 uri 구하기

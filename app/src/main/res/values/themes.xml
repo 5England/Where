@@ -2,15 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.Where" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/concept_color</item>
-        <item name="colorPrimaryVariant">@color/concept_color</item>
+        <item name="colorPrimary">@color/color_concept</item>
+        <item name="colorPrimaryVariant">@color/color_background</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/concept_color</item>
-        <item name="colorSecondaryVariant">@color/concept_color</item>
+        <item name="colorSecondary">@color/color_concept</item>
+        <item name="colorSecondaryVariant">@color/color_concept</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/nixgon_medium</item>
     </style>
 </resources>

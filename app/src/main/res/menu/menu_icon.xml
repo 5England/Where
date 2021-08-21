@@ -4,20 +4,20 @@
         android:id="@+id/icon_feed"
         android:enabled="true"
         android:icon="@drawable/icon_feed"
-        android:iconTint="@color/concept_color"
+        android:iconTint="@color/color_concept"
         android:title="피드" />
     <item
         android:id="@+id/icon_upload"
         android:enabled="true"
         android:icon="@drawable/icon_upload"
-        android:iconTint="@color/concept_color"
+        android:iconTint="@color/color_concept"
         android:title="업로드"
         />
     <item
         android:id="@+id/icon_my"
         android:enabled="true"
         android:icon="@drawable/icon_my"
-        android:iconTint="@color/concept_color"
+        android:iconTint="@color/color_concept"
         android:title="My" />
 
 </menu>

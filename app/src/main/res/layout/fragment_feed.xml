@@ -13,16 +13,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:padding="12dp"
             android:orientation="horizontal"
+            android:background="@color/color_background"
             android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/concept_color"
-                android:fontFamily="@font/nixgon_medium"
-                android:textSize="40dp"
+                android:textColor="@color/color_concept"
+                android:fontFamily="@font/nixgon_light"
+                android:textSize="35dp"
                 android:text="피드" />
 
             <LinearLayout
@@ -36,10 +37,10 @@
                     android:id="@+id/btn_order_rec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sds_basic"
+                    android:fontFamily="@font/nixgon_medium"
                     android:text="최신순"
                     android:layout_marginRight="7dp"
-                    android:textColor="@color/concept_color"
+                    android:textColor="@color/color_concept"
                     android:textSize="17dp" />
 
                 <TextView
@@ -48,13 +49,15 @@
                     android:fontFamily="@font/nixgon_medium"
                     android:text="|"
                     android:layout_marginRight="7dp"
+                    android:textColor="@color/white"
                     android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/btn_order_pop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sds_basic"
+                    android:fontFamily="@font/nixgon_medium"
+                    android:textColor="@color/white"
                     android:text="인기순"
                     android:textSize="17dp" />
             </LinearLayout>
@@ -63,25 +66,33 @@
                 android:id="@+id/btn_set_km"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="100"
+                android:fontFamily="@font/nixgon_medium"
                 android:layout_marginRight="3dp"
                 android:paddingBottom="5dp"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center_vertical"
-                android:fontFamily="@font/nixgon_medium"
+                android:fontFamily="@font/nixgon_light"
+                android:textColor="@color/white"
                 android:text="KM"
                 android:textSize="17dp" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_concept"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_feed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E7F7FF"/>
+            android:background="@color/color_background"/>
     </LinearLayout>
 </FrameLayout>
